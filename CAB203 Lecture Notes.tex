@@ -2,9 +2,10 @@
 
 % Packages
 \usepackage{tcolorbox}
+\usepackage{amsmath}
 
 % Global Settings
-\newtcolorbox{notebox}[1][] {
+\newtcolorbox{notebox} {
     colback=white,
     title=Note
 }
@@ -114,6 +115,7 @@ The rules of logic guarantee that true statements in a theory are also true in e
 A mathematical definition creates a short name for some concept.
 This is purely for brevity and does not express new things.
 In definitions, italics are used to emphasise the words that are being defined.
+%
 \subsubsection{"Divides"}
 A mathematical definition for "divides" is as follows:
 \begin{tcolorbox}
@@ -129,6 +131,27 @@ This definition states all the following are true:
     \item \(a\) divides \(b\)
     \item \(b\) is divisible by \(a\)
     \item There is some integer \(c\) such that \(ac = b\)
+\end{itemize}
+%
+\newpage
+\subsubsection{Modular Arithmetic and Equivalence}
+For any positive integer \(n\), it can have arithmetic modulo \(n\).
+Modular arithmetic replaces equality with \emph{modular equivalence}.
+a mathematical definition for modular equivalence is as follows:
+\begin{tcolorbox}
+    \begin{center}
+        if \(n \vert (a - b)\), 
+        then \(a\) and \(b\) are \emph{equivalent modulo} \(n\),
+        written as
+        \[a \equiv b \textnormal{ (mod } n \textnormal{)}\] % Surely there's a better way to do this lol
+    \end{center}
+\end{tcolorbox} 
+Modular equivalence carries similar properties to addition, subtraction, and multiplication.
+If $a \equiv b$ (mod $n$) and $c \equiv d$ (mod $n$), then:
+\begin{itemize}
+    \item $a + c \equiv b + d$ (mod $n$)
+    \item $a - c \equiv b - d$ (mod $n$)
+    \item $ac \equiv bd$ (mod $n$)
 \end{itemize}
 
 \subsection{Exponents and Logarithms}
