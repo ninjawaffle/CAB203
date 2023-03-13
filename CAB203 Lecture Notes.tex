@@ -1,5 +1,14 @@
 \documentclass{article}
 
+% Packages
+\usepackage{tcolorbox}
+
+% Global Settings
+\newtcolorbox{notebox}[1][] {
+    colback=white,
+    title=Note
+}
+
 \begin{document}
 
 \begin{titlepage}
@@ -21,21 +30,85 @@
 Abstraction can be used to simplify a problem by ignoring all the information that is not needed.
 They capture the relevant properties of a situation, and the relationships between them.
 Those properties can then be used to work out the solution.
-%
 \begin{itemize}
     \item You have \(x\) apples
     \item You have \(y\) friends
     \item Are there enough apples for all your friends?
 \end{itemize}
-By abstracting away irrelevant properties such as size, shape, colour etc. the problem can be simplifed to:
+The usual abstraction for problems involving counting is \emph{natural numbers} (non-negative integers).
+By abstracting away irrelevant properties such as size, shape, colour etc. the problem can be simplified to:
 \[x \geq y?\]
-%
-Limitations of abstraction include:
+Limitations of abstractions can include:
 \begin{itemize}
     \item Not enough information
     \item Too much information
     \item Incorrect information
 \end{itemize}
+%
+\subsubsection{Mathematical Theories}
+An abstraction without reference to a particular problem is called a \emph{mathematical theory}, usually consisting of:
+\begin{itemize}
+    \item Mathematical objects (numbers, operations, etc.)
+    \item Axioms (statements about how objects relate to each other)
+\end{itemize}
+%
+\newpage
+\subsubsection{Axioms}
+Some examples of axioms for the natural numbers include:
+\begin{enumerate}
+    \item 0 is a natural number
+    \item \(x = x\)
+    \item if \(x = y\) then \(y = x\)
+    \item if \(x = y\) and \(y = z\) then \(x = z\)
+    \item if \(x = w\) then \(w\) is a natural number
+    \item \(S(x)\) is a natural number
+    \item if \(S(x) = S(y)\) then \(x = y\)
+    \item \(S(x) = 0\) is always false
+\end{enumerate}
+Axioms can be combined to create new true statements.
+For example, axiom 6 in the list above states \(S(x)\) is a natural number,
+so by combining it with itself it can be deduced that \(S(S(x))\) is also a natural number.
+\begin{notebox}
+    \begin{center}
+        \(S\) refers to the \emph{successor function} that increments a natural number.
+        \[S(x) = x + 1\]
+    \end{center}
+\end{notebox}
+%
+\subsubsection{Mathematical Objects}
+Mathematical objects are abstract objects that can correspond to concrete objects.
+They can only be defined in how they relate to other objects - this is done through axioms.
+Formally, objects are just symbols. They have no meaning, and are just names.
+
+Relationships between objects are given by \emph{propositions}.
+Propositions are statements that can be true or false.
+Axioms are propositions that assert to be true for objects in the mathematical theory.
+%
+\subsubsection{Models}
+A mathematical theory can apply to a real situation if:
+\begin{itemize}
+    \item Every object in the theory matches up to something in the real situation (at least hypothetically)
+    \item All axioms in the theory remain true in the real situation
+\end{itemize}
+If this can be done, the real situation can be defined as a \emph{model} for the theory.
+
+Another instance of a model is a \emph{mathematical model}. 
+This type of model is an abstraction of a particular system to be studied and analysed in a mathematical way,
+and is the primary focus of this course when referring to "model".
+%
+\subsubsection{Truth in Mathematics}
+Statements in mathematics are always relative to a particular mathematical theory.
+A statement may be true in one theory and false in another.
+\begin{itemize}
+    \item For example, \(ab = ba\) is true for real numbers, but not for matrices.
+\end{itemize}
+A true statement in a theory is irrelevant to a real situation, \textbf{unless} it is a model for that theory.
+The rules of logic guarantee that true statements in a theory are also true in every model of the theory.
+\begin{notebox}
+    It is possible for every statement in a theory to be true \textbf{and} false.
+    This is called an \emph{inconsistent} theory and cannot have any models.
+\end{notebox}
+
 \subsection{Modular Arithmetic}
 \subsection{Exponents and Logarithms}
 
