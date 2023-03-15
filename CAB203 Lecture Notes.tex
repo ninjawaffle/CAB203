@@ -179,7 +179,86 @@ This lemma can be proven using previously stated definitions:\\
 This example is often used in programming to determine divisibility, or test if a number is even.
 
 \subsection{Exponents and Logarithms}
+\subsubsection{Exponents}
+Exponentiation refers to multiplying a base \(b\) by itself \(n\) number of times.
+\[b^x = \underbrace{b \times \dots \times b}_{x\ \text{times}}\]
+\begin{itemize}
+    \item \(b\) is called the \emph{base}
+    \item \(n\) is called the \emph{exponent}
+\end{itemize}
+%
+\subsubsection{Laws of Exponents}
+Some examples of laws regarding exponents are:
+\begin{itemize}
+    \item \((ab)^n = a^n \cdot b^n\)
+    \item \(a^m \cdot a^n = a^{m+n}\)
+    \item \(a^{m-n} = \frac{a^m}{a^n}\) (when \(a \neq 0\))
+    \item \(a^{-n} = \frac{1}{a^n}\) (when \(a \neq 0\))
+    \item \(a^0 = 1\)
+    \item \((a^m)^n = a^{m \cdot n}\)
+\end{itemize}
+%
+\subsubsection{Exponents in Computer Science}
+Bases of 2 are very common in computer science due to computers working on bits at the fundamental level,
+which only involves two states.
+Numbers involved in counting bits can become very large, as such there are prefixes to refer to quantities of bits,
+similar to SI unit prefixes:
+\begin{itemize}
+    \item \emph{Kilo-} is to multiply by \(2^{10}\)
+    \item \emph{Mega-} is to multiply by \(2^{20} = (2^{10})^2\)
+    \item \emph{Giga-} is to multiply by \(2^{30} = (2^{10})^3\)
+    \item \emph{Tera-} is to multiply by \(2^{40} = (2^{10})^4\)
+    \item \emph{Peta-} is to multiply by \(2^{50} = (2^{10})^5\)
+    \item \emph{Exa-} is to multiply by \(2^{60} = (2^{10})^6\)
+\end{itemize}
+For example, 1 kilobit = \(2^{10}\) = 1024 bits.
+%
+\subsubsection{Logarithms}
+Logarithms are the inverse of exponents.
+That is to say: \emph{the power to which a number must be raised in order to get some other number}.\\
+\[\log_b n = x\]
+Which is equivalent to the exponential \(b^x = n\).\\
+For example:
+\begin{align}
+    2^x & = 1024\\
+    \log_2 1024 & = x\\
+    x & = 10
+\end{align}
+%
+\subsubsection{Laws of Logarithms}
+Some examples of laws regarding logarithms are:
+\begin{itemize}
+    \item \(\log_a 1 = 0\)
+    \item \(\log_a a = 1\)
+    \item \(\log_a (x \cdot y) = \log_a x + \log_a y\)
+    \item \(\log_a x^y = y \log_a x\)
+    \item \(\log_a \frac{1}{y} = -\log_a y\)
+    \item \(\log_a \frac{x}{y} = \log_a x - \log_a y\)
+    \item \(\log_b x = (\log_b a) \cdot \log_a x\)
+\end{itemize}
+%
+\subsubsection{Base Transformation Law}
+Logarithm base 10, known as the \emph{common logarithm} is the common form of logarithms,
+however computer science often uses logarithm base 2.
+It is possible to calculate base 2 from base 10 using base transformation:
+\[\log_a x = \frac{log_b x}{\log_b a}\]
+%
+\newpage
+\subsubsection{Floor and Ceiling Functions}
+If a decimal result is undesirable,
+floor and ceiling functions can be used to round down or round up respectively.
+\begin{itemize}
+    \item \(\lfloor a \rfloor\) means to round down to the next integer below \(a\) (\textbf{floor})
+    \item \(\lceil a \rceil\) means to round up to the next integer above \(a\) (\textbf{ceiling})
+\end{itemize}
+Example:
+\begin{align*}
+    \log_2 3 &= 1.5849625007 \\
+    \lfloor \log_2 3 \rfloor &= 1 \\
+    \lceil \log_2 3 \rceil &= 2
+\end{align*}
 
+\newpage
 \section{Data Representation}
 
 \end{document}
