@@ -264,5 +264,217 @@ Example:
 
 \newpage
 \section{Data Representation}
+\subsection{Bits and Bit Strings}
+% \begin{table}
+%     \begin{tabular}{|c|c|c|}
+%      \hline
+%         Col 1 & Col 2 & Col 3 \\ \hline
+%         ya    &       & ya    \\ \hline
+%     \end{tabular}
+% \end{table}
+\subsubsection{Bits}
+A \emph{bit} is a fundamental unit of information that has 2 states,
+usually labelled 0 and 1.
+Everything that happens in a computer involves bits,
+whether that's inputting, storing, manipulating, or outputting data.
+%
+\subsubsection{Bit Strings}
+Bit strings are a sequences of \(n\) number of bits.
+A single bit can also be classified as a bit string.
+\begin{itemize}
+    \item 0
+    \item 00000
+    \item 10101110001
+    \item 111111111111111111111111111111111111
+\end{itemize}
+%
+\subsubsection{Bit String Notation}
+Some common notation regarding bit strings is as follows:
+\begin{itemize}
+    \item Overline over variables to indicate a bit string: \(\overline{x}\)
+    \item The set of all strings of length \(n\) is \(\lbrace 0,1 \rbrace ^n\) (\(n\)-bit strings)
+    \item All bit strings of all lengths are members of \(\lbrace 0,1 \rbrace ^*\)
+    \item The \(j\)th bit in \(\overline{x}\) is \(\overline{x}_j\) (\(j\) goes from 0 to \(n - 1\))
+\end{itemize}
+Some extra things to note:
+\begin{itemize}
+    \item Bit strings are counted right-to-left. \(\overline{x}_0\) is the rightmost bit
+    \item For each \(\overline{x}_j\) there are two possible values, 0 and 1
+        \begin{itemize}
+            \item This means there are \(2^n\) possible bit strings of length \(n\)
+        \end{itemize}
+\end{itemize}
+%
+\subsubsection{Bit Operations}
+Bitwise operations can be performed on bit strings of the same length.
+There are two types of bit operations:
+\begin{itemize}
+    \item Single bit or bit pair operations
+    \item Bit string operations
+\end{itemize}
+The four typical bitwise operations performed are
+\textbf{NOT}, \textbf{AND}, \textbf{OR}, and \textbf{XOR}.
+%
+\newpage
+\subsubsection{Bitwise NOT}
+NOT is a unary operator that flips a bit. 0 becomes 1, and 1 becomes 0.
+\begin{table}[h]
+    \centering
+    \caption{NOT Truth Table}
+    \begin{tabular}{c|c}
+        \(x\) & \(\neg x\) \\ \hline
+        0     & 1          \\
+        1     & 0          \\
+    \end{tabular}
+\end{table}
+\begin{tcolorbox}[title=Note]
+    In programming, the operator for NOT is usually \(\sim\)
+\end{tcolorbox}
+%
+\subsubsection{Bitwise AND}
+AND is a binary operator that results in 1 if \textbf{both} operands are also 1,
+otherwise it will result in 0.
+\begin{table}[h]
+    \centering
+    \caption{AND Truth Table}
+    \begin{tabular}{c|c|c}
+        \(x\) & \(y\) & \(x \wedge y\) \\ \hline
+        0     & 0     & 0              \\
+        0     & 1     & 0              \\
+        1     & 0     & 0              \\
+        1     & 1     & 1              \\
+    \end{tabular}
+\end{table}
+\begin{tcolorbox}[title=Note]
+    In programming, the operator for AND is usually \(\And\)
+\end{tcolorbox}
+%
+\newpage
+\subsubsection{Bitwise OR}
+OR is a binary operator that results in 1 if \textbf{either} operands are also 1,
+otherwise it will result in 0.
+\begin{table}[h]
+    \centering
+    \caption{OR Truth Table}
+    \begin{tabular}{c|c|c}
+        \(x\) & \(y\) & \(x \vee y\) \\ \hline
+        0     & 0     & 0            \\
+        0     & 1     & 1            \\
+        1     & 0     & 1            \\
+        1     & 1     & 1            \\
+    \end{tabular}
+\end{table}
+\begin{tcolorbox}[title=Note]
+    In programming, the operator for OR is usually \(\vert\)
+\end{tcolorbox}
+%
+\subsubsection{Bitwise XOR}
+XOR is a binary operator that results in 1 if both operands are \textbf{either} values,
+otherwise it will result in 0.
+\begin{table}[h]
+    \centering
+    \caption{XOR Truth Table}
+    \begin{tabular}{c|c|c}
+        \(x\) & \(y\) & \(x \oplus y\) \\ \hline
+        0     & 0     & 0              \\
+        0     & 1     & 1              \\
+        1     & 0     & 1              \\
+        1     & 1     & 0              \\
+    \end{tabular}
+\end{table}
+\begin{tcolorbox}[title=Note]
+    In programming, the operator for XOR is usually \(\string^\)
+\end{tcolorbox}
+%
+\newpage
+\subsubsection{Concatenation}
+Bit strings can be concatenated together.
+\(n\)-bit string \(\overline{x}\) can be concatenated with \(m\)-bit string \(\overline{y}\)
+to create \((n + m)\)-bit string \(\overline{xy}\). Strings are joined left-to-right. \\
+Example:
+\begin{align*}
+    \overline{x} &= 000 \\
+    \overline{y} &= 11 \\
+    \overline{xy} &= 00011
+\end{align*}
+\begin{tcolorbox}[title=Note]
+    Concatenation can also be written like \(\overline{x} \lvert \rvert \overline{y}\)
+    or \(\overline{x} \cdot \overline{y}\)
+\end{tcolorbox}
+
+\subsection{Representing Text}
+\subsubsection{Encoding}
+Bits can be used to represent other forms of data, such as text.
+For bits to represent characters, an encoding is needed.
+The criteria for such is as follows:
+\begin{itemize}
+    \item A set of characters to represent
+    \item Length \(n\) for bit strings
+    \item Mapping from characters to \(\lbrace 0,1 \rbrace ^n\)
+    \begin{itemize}
+        \item The mapping needs exactly one bit string for each character,
+              and no two characters sharing the bit string
+    \end{itemize}
+\end{itemize}
+%
+\subsubsection{Lexicographic Ordering}
+Lexicographic ordering is a common way to order bit strings and follows these rules:
+\begin{itemize}
+    \item 0 comes before 1
+    \item Compare strings one bit at a time, from left-to-right
+    \item Where strings differ, the string with a 0 goes first
+    \item If a string is longer, pad the shorter string to the right with empty spaces
+    \item Empty spaces come before 0
+\end{itemize}
+%
+\newpage
+\subsubsection{ASCII}
+ASCII is an old, but still used encoding for English text.
+Some characteristics include:
+\begin{itemize}
+    \item 7 bit strings
+    \item 128 characters
+    \item Upper and lower case Latin characters, numbers, punctuation, symbols, space, newline
+    \item Special characters relating to teleprinters like BEL, ESC, and NUL
+\end{itemize}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/ascii_chart.png}
+    \caption{USASCII Code Chart}
+\end{figure}
+%
+\newpage
+\subsubsection{Unicode}
+Unicode is a modern encoding for many languages and writing systems.
+Some characteristics include:
+\begin{itemize}
+    \item Around 137,000 characters supported
+    \item Support for most writing systems
+    \item Mathematical symbols, punctuation, emoji
+    \item Multiple size encodings
+\end{itemize}
+Unicode assigns a hexadecimal string (code point) for each character.
+It also has several different encodings using different-sized bit strings.
+\begin{itemize}
+    \item UTF32, using 32 bits for each character
+    \item UTF16, using one or two 16-bit strings. This makes it \emph{variable length encoding}
+    \item UTF8, using between one and four 8-bit strings.
+          It is also \emph{variable length encoding} and is backwards compatible with ASCII.
+          UTF8 is the most common encoding
+\end{itemize}
+%
+\subsubsection{Interpreting Text}
+Characters are often needed in sequence, forming words.
+These are called character strings and are one long string of bits.
+Interpreting these bits requires knowing:
+\begin{itemize}
+    \item How long each character representation is
+    \item When to stop
+\end{itemize}
+For fixed-length encodings, knowing when to stop is sufficient.
+Variable-length encodings require a way to recognise when a character representation is finished.
+Most modern programming languages store the amount of characters alongside the string.
+C however, uses \emph{null-terminated strings} which store a reserved bit string 00000000 (NUL in ASCII)
+at the end to indicate the string has ended.
 
 \end{document}
