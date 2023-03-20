@@ -577,34 +577,38 @@ however propositional logical also introduces some new operators:
     \item \textbf{IF .. THEN} symbolised by \(\rightarrow\)
     \item \textbf{IF AND ONLY IF} symbolised by \(\leftrightarrow\)
 \end{itemize}
+\begin{tcolorbox}[title=Note]
+    For the following truth tables, \(p\) and \(q\) are semantically equivalent to \(x\) and \(y\),
+    and \emph{T} and \emph{F} are semantically equivalent to 1 and 0 respectively.
+\end{tcolorbox}
 %
 \subsubsection{IF .. THEN}
-IF .. THEN is a binary operator that results in 1 if \(y\) is 1 when \(x\) is also 1.
-When \(x\) is 0, the result is always 1.
+IF .. THEN is a binary operator that results in \emph{true} if \(q\) is \emph{true} when \(p\) is also \emph{true}.
+When \(p\) is \emph{false}, the result is always \emph{true}.
 \begin{table}[h]
     \centering
     \caption{IF .. THEN Truth Table}
     \begin{tabular}{c|c|c}
-        \(x\) & \(y\) & \(x \rightarrow y\) \\ \hline
-        0     & 0     & 1              \\
-        0     & 1     & 1              \\
-        1     & 0     & 0              \\
-        1     & 1     & 1              \\
+        \(p\) & \(q\) & \(p \rightarrow q\) \\ \hline
+        F     & F     & T              \\
+        F     & T     & T              \\
+        T     & F     & F              \\
+        T     & T     & T              \\
     \end{tabular}
 \end{table}
 %
 \newpage
 \subsubsection{IF AND ONLY IF}
-IF AND ONLY IF is a binary operator that results in 1 if \textbf{both} operands are the same value.
+IF AND ONLY IF is a binary operator that results in \emph{true} if \textbf{both} operands are the same value.
 \begin{table}[h]
     \centering
     \caption{IF AND ONLY IF Truth Table}
     \begin{tabular}{c|c|c}
-        \(x\) & \(y\) & \(x \leftrightarrow y\) \\ \hline
-        0     & 0     & 1              \\
-        0     & 1     & 0              \\
-        1     & 0     & 0              \\
-        1     & 1     & 1              \\
+        \(p\) & \(q\) & \(p \leftrightarrow q\) \\ \hline
+        F     & F     & T              \\
+        F     & T     & F              \\
+        T     & F     & F              \\
+        T     & T     & T              \\
     \end{tabular}
 \end{table}
 \begin{tcolorbox}[title=Note]
