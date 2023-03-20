@@ -7,5 +7,5 @@
 *.toc
 
 .vscode/
-Lecture Slides/
+# Lecture Slides/
 Tutorials/
