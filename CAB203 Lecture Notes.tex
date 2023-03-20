@@ -3,6 +3,7 @@
 % Packages
 \usepackage{tcolorbox}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{caption}
 
 % Global Settings
@@ -477,4 +478,37 @@ Most modern programming languages store the amount of characters alongside the s
 C however, uses \emph{null-terminated strings} which store a reserved bit string 00000000 (NUL in ASCII)
 at the end to indicate the string has ended.
 
+\newpage
+\section{Week 3: Propositional Logic}
+\subsection{Recursion}
+\subsubsection{Recursive Definitions}
+An object described in terms of itself is called \emph{recursive definition}.
+For example, the factorial of \(\mathbb{N}\) can be defined by:
+\[n! = \prod_{j=1}^{n} j = 1 \cdot 2 \dots (n-1) \cdot n\]
+\(n!\) can also be defined recursively by:
+\[
+    n! = 
+    \begin{cases}
+        1       &: n = 1 \\
+        n(n-1)! &: n > 1
+    \end{cases}
+\]
+Another example of recursion is the Fibonacci Sequence:
+\[
+    f(n) = 
+    \begin{cases}
+        1               &: n = 1 \\
+        1               &: n = 2 \\
+        f(n-1) + f(n-2) &: n > 2
+    \end{cases}
+\]
+%
+\subsubsection{Recursive Cases}
+The two main parts of a recursive definition are:
+\begin{itemize}
+    \item \textbf{Base cases}: evaluated without any reference to object
+    \item \textbf{Recursive cases}: Cases that refer back to object definition
+\end{itemize}
+At least one base case is required, but there may be several.
+Recursive cases must always resolve back to base cases to be well-defined.
 \end{document}
