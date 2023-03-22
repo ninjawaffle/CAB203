@@ -614,5 +614,65 @@ IF AND ONLY IF is a binary operator that results in \emph{true} if \textbf{both}
 \begin{tcolorbox}[title=Note]
     The IF AND ONLY IF operator is an inverse of the XOR operator.
 \end{tcolorbox}
+%
+\subsection{Formulas}
+\subsubsection{Formulas}
+A Boolean formula is a string of symbols that denotes how to build a compound proposition.
+Formulas are evaluated to the following precedence:
+\begin{itemize}
+    \item \((A)\)
+    \item \(\neg A\)
+    \item \(A \oplus B\)
+    \item \(A \wedge B\)
+    \item \(A \vee B\)
+    \item \(A \rightarrow B\)
+    \item \(A \leftrightarrow B\)
+\end{itemize}
+%
+\subsubsection{Formula Truth Values}
+To find the truth value of a formula, fill in the truth value for all variables and then
+evaluate logical connectives from innermost parenthesis outwards. \\
+When \(p = T\) and \(q = F\)
+\begin{align*}
+    (p \vee q) \rightarrow (q \oplus p) & = (T \vee F) \rightarrow (F \oplus T) \\
+                                        & = T \rightarrow T                     \\
+                                        & = T
+\end{align*}
+%
+\newpage
+\subsubsection{Classifying Formulas}
+There are four basic kinds of formulas:
+\begin{itemize}
+    \item \emph{tautologies}, which are always \textbf{true}
+    \begin{itemize}
+        \item \(T\)
+        \item \(\neg F\)
+        \item \(A \vee \neg A\)
+    \end{itemize}
+    \item \emph{contradictions}, which are always \textbf{false}
+    \begin{itemize}
+        \item \(F\)
+        \item \(\neg T\)
+        \item \(A \wedge \neg A\)
+    \end{itemize}
+    \item \emph{contingent} formulas can be true or false, depending on the variables
+    \begin{itemize}
+        \item \(A \vee B\)
+        \item \(A \rightarrow B\)
+    \end{itemize}
+    \item \emph{satisfiable} formulas are either tautologies or contingent formulas
+\end{itemize}
+They can be summarised in the following table:
+\begin{table}[h]
+    \centering
+    \caption{Formula Classifications}
+    \begin{tabular}{c|c|c|c}
+        Classification & Always True & Sometimes True & Always False   \\ \hline
+        Tautology      & O           & X              & X              \\
+        Contradiction  & X           & X              & O              \\
+        Contingent     & X           & O              & X              \\
+        Satisfiable    & O           & O              & X              \\
+    \end{tabular}
+\end{table}
 
 \end{document}
